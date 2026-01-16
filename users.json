@@ -1,0 +1,14 @@
+{
+
+
+    "kuzey":{
+        "password" : "123",
+        "permission" : 1
+    },
+
+    "admin":{
+        "password" : "admin",
+        "permission" : 3
+    }
+
+}

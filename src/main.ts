@@ -1,8 +1,8 @@
 import { invoke } from '@tauri-apps/api/core';
 
 const login_button = document.querySelector('#login_button');
-const username_input = document.querySelector('input[placeholder="Username"]');
-const password_input = document.querySelector('input[placeholder="Password"]');
+const username_input = document.querySelector('input[placeholder="Username"]') as HTMLInputElement;
+const password_input = document.querySelector('input[placeholder="Password"]') as HTMLInputElement;
 
 login_button?.addEventListener("click", () => {
     login_validate();
@@ -14,6 +14,7 @@ async function login_validate() {
 
     if (message == true) {
         alert("Login Successful!");
+        window.location.href = "home.html";
     } else {
         alert("Login Failed. Please check your username and password.");
     }

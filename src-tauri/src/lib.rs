@@ -1,4 +1,6 @@
-use std::fmt::format;
+use std::collections::HashMap;
+use serde::{Deserialize, Serialize};
+use std::fs;
 
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #[tauri::command]
@@ -6,15 +8,29 @@ fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
 }
 
+#[derive(Serialize, Deserialize)]
+struct LoginInfo {
+    password: String
+}
+
+
 #[tauri::command]
 fn login_validation(name : &str, password: &str) -> bool {
     println!("login_validation called in rust");
     println!("name: {}, password: {}", name, password);
-    if name == "admin" && password == "password123" {
-        return true;
-    } else {
-        return false;
+
+    let user_data_file = fs::read_to_string("users.json").expect("Error!");
+    let users: HashMap<String, LoginInfo> = serde_json::from_str(&user_data_file).expect("Error!");
+
+    for (key, value) in users.iter() {
+        if key == name && value.password == password {
+            println!("Login successful for user: {}", name);
+            return true;
+        }
     }
+
+
+
     false
 }
 
