@@ -1,3 +1,24 @@
 body{
-    background-image: url("assets/home_background.png");
+    background-image: url("assets/home_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    min-height: 100vh;
+    margin: 0;
+
+}
+
+.main_div {
+    width: 600px;
+    height: 450px;
+    background-color: rgba(0, 0, 0, 0.726);
+    border-radius: 15px;;
+    box-shadow: 8px 8px 15px #000000;
+
 }
