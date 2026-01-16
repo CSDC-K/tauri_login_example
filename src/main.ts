@@ -14,7 +14,9 @@ async function login_validate() {
 
     if (message == true) {
         alert("Login Successful!");
-        window.location.href = "home.html";
+        window.location.href = "home.html?username=" + encodeURIComponent(username_input?.value || "");
+
+
     } else {
         alert("Login Failed. Please check your username and password.");
     }

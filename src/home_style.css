@@ -22,3 +22,11 @@ body{
     box-shadow: 8px 8px 15px #000000;
 
 }
+
+.home-title {
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 36px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
